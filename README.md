@@ -5,3 +5,5 @@ A Discord bot written in Python to remind your friend serving in the Finnish mil
 ## Commands
 - !aamuja
     - Wish them good mornings
+- !tj
+    - How many mornings left today
