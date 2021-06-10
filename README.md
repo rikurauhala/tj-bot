@@ -16,7 +16,7 @@ Bottia käytetään antamalla sille komentoja chatin kautta. Huomaa, että botin
 
 ## Asennusohjeet
 
-Aloita luomalla sovellus ja siihen botti [Discordin sivuilla](https://discord.com/developers/applications). Generoi token ja ota se talteen myöhempää käyttöä varten. Lisää myös tämän sivun kautta botti omalle Discord-palvelimellesi. Oletetaan, että Git ja Python ovat asennettuina Linuxille.
+Aloita luomalla sovellus ja siihen botti [Discordin sivuilla](https://discord.com/developers/applications). Generoi token ja ota se talteen myöhempää käyttöä varten. Valitse botille myös tarvittavat käyttöoikeudet. Ylläpitäjän (administrator) oikeuksia ei tarvita, sillä tj-bot vain lukee viestejä ja reagoi komentoihin. Lisää myös tämän sivun kautta botti omalle Discord-palvelimellesi. Oletetaan, että Git ja Python ovat asennettuina Linuxille.
 
 ```bash
 # Kloonaa repositorio
