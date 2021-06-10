@@ -4,7 +4,7 @@ A Discord bot written in Python to remind your friend serving in the Finnish mil
 
 Discord-botti, joka kertoo päivän tj-luvun ja toivottaa aamuja intissä olevalle kaverillesi.
 
-## Commands
+## Komennot
 - !aamuja
     - Toivottaa aamuja
 - !tj
