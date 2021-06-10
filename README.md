@@ -1,9 +1,13 @@
 # Tj-bot
 
-A Discord bot written in Python to remind your friend serving in the Finnish military how many mornings they have left and wish them "aamuja". The bot speaks Finnish.
+A Discord bot written in Python to remind your friend serving in the Finnish military how many mornings they have left and wish them good mornings. The bot speaks Finnish.
+
+Discord-botti, joka kertoo päivän tj-luvun ja toivottaa aamuja intissä olevalle kaverillesi.
 
 ## Commands
 - !aamuja
-    - Wish them good mornings
+    - Toivottaa aamuja
 - !tj
-    - How many mornings left today
+    - Tänään jäljellä
+- !lisätietoja
+    - Yksityiskohtaisempaa tietoa
