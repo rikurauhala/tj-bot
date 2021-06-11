@@ -11,6 +11,7 @@ Bottia käytetään antamalla sille komentoja chatin kautta. Huomaa, että botin
 | Komento      | Selitys                     |
 | ------------ | --------------------------- |
 | !aamuja      | Toivottaa aamuja            |
+| !help        | Listaa komennot             |
 | !tj          | Tänään jäljellä             |
 | !lisätietoja | Yksityiskohtaisempaa tietoa |
 

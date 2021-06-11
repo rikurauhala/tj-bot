@@ -11,7 +11,7 @@ bot = commands.Bot(command_prefix="!")
 async def on_ready():
     print(f"{bot.user.name} has connected to Discord!")
 
-@bot.command(name="aamuja", help="Huutelee aamuja")
+@bot.command(name="aamuja", help="Toivottaa aamuja")
 async def aamuja(ctx):
     await ctx.send("Aamuja!")
 
@@ -20,7 +20,7 @@ async def tj(ctx):
     tj = count_tj()
     await ctx.send(f"Tänään jäljellä: **{tj}** aamua")
 
-@bot.command(name="lisätietoja", help="Lisätietoja")
+@bot.command(name="lisätietoja", help="Yksityiskohtaisempaa tietoa")
 async def lisatietoja(ctx):
     se = "I/21"
     pa = 347
