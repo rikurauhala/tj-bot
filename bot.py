@@ -18,7 +18,10 @@ async def aamuja(ctx):
 @bot.command(name="tj", help="Tänään jäljellä")
 async def tj(ctx):
     tj = count_tj()
-    await ctx.send(f"Tänään jäljellä: **{tj}** aamua")
+    if tj > 0:
+        await ctx.send(f"Tänään jäljellä: **{tj}** aamua")
+    else:
+        await ctx.send(f"Palvelukseen astumiseen: **{tj}** aamua")
 
 @bot.command(name="lisätietoja", help="Yksityiskohtaisempaa tietoa")
 async def lisatietoja(ctx):
@@ -40,9 +43,15 @@ async def lisatietoja(ctx):
     await ctx.send(details)
 
 def count_tj():
+    # Testataan seuraavan saapumiserän (II/21) päivämäärillä
     today = date.today()
-    tj0 = date(2021, 12, 16)
-    tj = abs((today-tj0).days)
-    return tj
+    tj347 = date(2021, 7, 5)
+    tj_pa = (today-tj347).days
+    if tj_pa < 0:
+        return tj_pa
+    else:
+        tj0 = date(2022, 6, 16)
+        tj = abs((today-tj0).days)
+        return tj
 
 bot.run(TOKEN)
