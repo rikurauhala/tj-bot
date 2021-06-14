@@ -21,6 +21,7 @@ async def tj(ctx):
     if tj > 0:
         await ctx.send(f"Tänään jäljellä: **{tj}** aamua")
     else:
+        tj = abs(tj)
         await ctx.send(f"Palvelukseen astumiseen: **{tj}** aamua")
 
 @bot.command(name="lisätietoja", help="Yksityiskohtaisempaa tietoa")
