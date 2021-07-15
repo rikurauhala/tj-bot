@@ -28,12 +28,12 @@ async def tj(ctx):
 async def lisatietoja(ctx):
     se = "I/21"
     pa = 347
-    tj0 = datetime(2021, 12, 16)
+    tj0 = datetime(2022, 6, 16, 10, 0, 0)
     now = datetime.now()
     days = count_tj()
     seconds = abs(now-tj0).total_seconds()
-    hours = seconds//3600
     minutes = seconds//60
+    hours = seconds//3600
     details = f"```Saapumiserä: {se} \n" \
               f"Palvelusaika: {pa} \n\n" \
               f"TÄNÄÄN JÄLJELLÄ \n" \
@@ -44,7 +44,6 @@ async def lisatietoja(ctx):
     await ctx.send(details)
 
 def count_tj():
-    # Testataan seuraavan saapumiserän (II/21) päivämäärillä
     today = date.today()
     tj347 = date(2021, 7, 5)
     tj_pa = (today-tj347).days
