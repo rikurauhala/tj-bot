@@ -25,6 +25,12 @@ async def tj(ctx):
         tj = abs(tj)
         await ctx.send(f"Palvelukseen astumiseen: **{tj}** aamua")
 
+@bot.command(name="ohi", help="Aamuja ohi")
+async def ohi(ctx):
+    tj = count_tj()
+    ohi = 347-tj
+    await ctx.send(f"Ohi on: **{ohi}** aamua")
+
 @bot.command(name="lisätietoja", help="Yksityiskohtaisempaa tietoa")
 async def lisatietoja(ctx):
     se = "2/21"
