@@ -21,11 +21,7 @@ async def aamuja(ctx):
 @bot.command(name="tj", help="Tänään jäljellä")
 async def tj(ctx):
     tj = count_tj()
-    if tj > 0:
-        await ctx.send(f"Tänään jäljellä: **{tj}** aamua")
-    else:
-        tj = abs(tj)
-        await ctx.send(f"Palvelukseen astumiseen: **{tj}** aamua")
+    await ctx.send(f"Tänään jäljellä: **{tj}** aamua")
 
 @bot.command(name="ohi", help="Aamuja ohi")
 async def ohi(ctx):
@@ -40,10 +36,10 @@ async def lisatietoja(ctx):
     tj0 = datetime(2022, 6, 16, 10, 0, 0)
     tj0 = timezone.localize(tj0)
     now = datetime.now(tz=timezone)
-    days = count_tj()
     seconds = abs(now-tj0).total_seconds()
     minutes = seconds/60
     hours = ceil(seconds/(60*60))
+    days = seconds/(24*60*60)
     weeks = seconds/(7*24*60*60)
     months = seconds/(30.437*24*60*60)
     years = seconds/(365*24*60*60)
@@ -55,7 +51,7 @@ async def lisatietoja(ctx):
               f"- Vuosina: {years:.2f} \n" \
               f"- Kuukausina: {months:.2f} \n" \
               f"- Viikkoina: {weeks:.1f} \n" \
-              f"- Päivinä: {days} \n" \
+              f"- Päivinä: {days:.1f} \n" \
               f"- Tunteina: {hours:.0f} \n" \
               f"- Minuutteina: {minutes:.0f} \n" \
               f"- Sekunteina: {seconds:.0f} \n\n" \
@@ -64,14 +60,10 @@ async def lisatietoja(ctx):
     await ctx.send(details)
 
 def count_tj():
-    today = date.today()
-    tj347 = date(2021, 7, 5)
-    tj_pa = (today-tj347).days
-    if tj_pa < 0:
-        return tj_pa
-    else:
-        tj0 = date(2022, 6, 16)
-        tj = abs((today-tj0).days)
-        return tj
+    now = datetime.now(tz=timezone)
+    tj0 = datetime(2022, 6, 16)
+    tj0 = timezone.localize(tj0)
+    tj = abs((now-tj0).days)
+    return tj
 
 bot.run(TOKEN)
