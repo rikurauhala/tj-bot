@@ -37,9 +37,11 @@ async def lisatietoja(ctx):
     hours = ceil(seconds/(60*60))
     weeks = seconds/(7*24*60*60)
     months = seconds/(30.437*24*60*60)
+    years = seconds/(365*24*60*60)
     details = f"```Saapumiserä: {se} \n" \
               f"Palvelusaika: {pa} \n\n" \
               f"TÄNÄÄN JÄLJELLÄ \n" \
+              f"Vuosina: {years:.2f} \n" \
               f"Kuukausina: {months:.2f} \n" \
               f"Viikkoina: {weeks:.1f} \n" \
               f"Päivinä: {days} \n" \
