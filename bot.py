@@ -1,10 +1,12 @@
-import discord, dotenv, os
+import discord, dotenv, os, pytz
 from datetime import date, datetime
 from math import ceil
 from discord.ext import commands
 
 dotenv.load_dotenv()
 TOKEN = os.getenv("DISCORD_TOKEN")
+
+timezone = pytz.timezone("Europe/Helsinki")
 
 bot = commands.Bot(command_prefix="!")
 
@@ -36,7 +38,8 @@ async def lisatietoja(ctx):
     se = "2/21"
     pa = 347
     tj0 = datetime(2022, 6, 16, 10, 0, 0)
-    now = datetime.now()
+    tj0 = timezone.localize(tj0)
+    now = datetime.now(tz=timezone)
     days = count_tj()
     seconds = abs(now-tj0).total_seconds()
     minutes = seconds/60
