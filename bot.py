@@ -43,7 +43,7 @@ async def lisatietoja(ctx):
     weeks = seconds/(7*24*60*60)
     months = seconds/(30.437*24*60*60)
     years = seconds/(365*24*60*60)
-    ohi = pa-days
+    ohi = pa-count_tj()
     percent = 100*(1-seconds/(pa*24*60*60))
     details = f"```Saapumiserä: {se} \n" \
               f"Palvelusaika: {pa} \n\n" \
