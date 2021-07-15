@@ -38,6 +38,8 @@ async def lisatietoja(ctx):
     weeks = seconds/(7*24*60*60)
     months = seconds/(30.437*24*60*60)
     years = seconds/(365*24*60*60)
+    ohi = pa-days
+    percent = 100*(1-seconds/(pa*24*60*60))
     details = f"```Saapumiserä: {se} \n" \
               f"Palvelusaika: {pa} \n\n" \
               f"TÄNÄÄN JÄLJELLÄ \n" \
@@ -47,7 +49,8 @@ async def lisatietoja(ctx):
               f"Päivinä: {days} \n" \
               f"Tunteina: {hours:.0f} \n" \
               f"Minuutteina: {minutes:.0f} \n" \
-              f"Sekunteina: {seconds:.0f}```"
+              f"Sekunteina: {seconds:.0f} \n\n" \
+              f"OHI ON {ohi} aamua ({percent:.2f} %)```"
     await ctx.send(details)
 
 def count_tj():
