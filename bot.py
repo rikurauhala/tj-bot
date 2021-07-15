@@ -1,5 +1,6 @@
 import discord, dotenv, os
 from datetime import date, datetime
+from math import ceil
 from discord.ext import commands
 
 dotenv.load_dotenv()
@@ -32,8 +33,8 @@ async def lisatietoja(ctx):
     now = datetime.now()
     days = count_tj()
     seconds = abs(now-tj0).total_seconds()
-    minutes = seconds//60
-    hours = seconds//3600
+    minutes = seconds/60
+    hours = ceil(seconds/3600)
     details = f"```Saapumiserä: {se} \n" \
               f"Palvelusaika: {pa} \n\n" \
               f"TÄNÄÄN JÄLJELLÄ \n" \
