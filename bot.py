@@ -43,14 +43,15 @@ async def lisatietoja(ctx):
     details = f"```Saapumiserä: {se} \n" \
               f"Palvelusaika: {pa} \n\n" \
               f"TÄNÄÄN JÄLJELLÄ \n" \
-              f"Vuosina: {years:.2f} \n" \
-              f"Kuukausina: {months:.2f} \n" \
-              f"Viikkoina: {weeks:.1f} \n" \
-              f"Päivinä: {days} \n" \
-              f"Tunteina: {hours:.0f} \n" \
-              f"Minuutteina: {minutes:.0f} \n" \
-              f"Sekunteina: {seconds:.0f} \n\n" \
-              f"OHI ON {ohi} aamua ({percent:.2f} %)```"
+              f"- Vuosina: {years:.2f} \n" \
+              f"- Kuukausina: {months:.2f} \n" \
+              f"- Viikkoina: {weeks:.1f} \n" \
+              f"- Päivinä: {days} \n" \
+              f"- Tunteina: {hours:.0f} \n" \
+              f"- Minuutteina: {minutes:.0f} \n" \
+              f"- Sekunteina: {seconds:.0f} \n\n" \
+              f"OHI ON \n" \
+              f"- {ohi} aamua ({percent:.2f} %)```"
     await ctx.send(details)
 
 def count_tj():
