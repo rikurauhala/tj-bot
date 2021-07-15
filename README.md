@@ -12,8 +12,9 @@ Bottia käytetään antamalla sille komentoja chatin kautta. Huomaa, että botin
 | ------------ | --------------------------- |
 | !aamuja      | Toivottaa aamuja            |
 | !help        | Listaa komennot             |
-| !tj          | Tänään jäljellä             |
 | !lisätietoja | Yksityiskohtaisempaa tietoa |
+| !tj          | Tänään jäljellä             |
+| !ohi         | Aamuja ohi                  |
 
 ## Asennusohjeet
 
