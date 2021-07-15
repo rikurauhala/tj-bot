@@ -27,7 +27,7 @@ async def tj(ctx):
 
 @bot.command(name="lisätietoja", help="Yksityiskohtaisempaa tietoa")
 async def lisatietoja(ctx):
-    se = "I/21"
+    se = "2/21"
     pa = 347
     tj0 = datetime(2022, 6, 16, 10, 0, 0)
     now = datetime.now()
