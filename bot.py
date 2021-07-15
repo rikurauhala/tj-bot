@@ -34,8 +34,8 @@ async def lisatietoja(ctx):
     days = count_tj()
     seconds = abs(now-tj0).total_seconds()
     minutes = seconds/60
-    hours = ceil(seconds/3600)
-    weeks = seconds/604800
+    hours = ceil(seconds/(60*60))
+    weeks = seconds/(7*24*60*60)
     details = f"```Saapumiserä: {se} \n" \
               f"Palvelusaika: {pa} \n\n" \
               f"TÄNÄÄN JÄLJELLÄ \n" \
