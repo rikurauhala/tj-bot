@@ -22,7 +22,7 @@ Aloita luomalla sovellus ja siihen botti [Discordin sivuilla](https://discord.co
 
 ```bash
 # Kloonaa repositorio
-$ git clone https://github.com/rvrauhala/tj-bot
+$ git clone https://github.com/rikurauhala/tj-bot
 
 # Siirry kansioon
 $ cd tj-bot
