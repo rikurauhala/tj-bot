@@ -1,12 +1,15 @@
-import discord, dotenv, os, pytz
-from datetime import date, datetime
+import os
+import dotenv
+import discord
+from datetime import datetime
 from math import ceil
+from pytz import timezone
 from discord.ext import commands
 
 dotenv.load_dotenv()
 TOKEN = os.getenv("DISCORD_TOKEN")
 
-timezone = pytz.timezone("Europe/Helsinki")
+timezone = timezone("Europe/Helsinki")
 
 bot = commands.Bot(command_prefix="!")
 
