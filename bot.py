@@ -40,13 +40,13 @@ async def lisatietoja(ctx):
     now = datetime.now(tz=timezone)
     seconds = abs(now-tj0).total_seconds()
     minutes = seconds/60
-    hours = seconds/(60*60)
-    days = seconds/(24*60*60)
-    weeks = seconds/(7*24*60*60)
-    months = seconds/(30.437*24*60*60)
-    years = seconds/(365*24*60*60)
+    hours = minutes/60
+    days = hours/24
+    weeks = days/7
+    months = days/30.437
+    years = days/365
     ohi = pa-count_tj()
-    percent = 100*(1-seconds/(pa*24*60*60))
+    percent = 100*(1-days/pa)
     details = f"```Saapumiserä: {se} \n" \
               f"Palvelusaika: {pa} \n\n" \
               f"TÄNÄÄN JÄLJELLÄ \n" \
