@@ -2,7 +2,6 @@ import os
 import dotenv
 import discord
 from datetime import datetime
-from math import ceil
 from pytz import timezone
 from discord.ext import commands
 
@@ -41,7 +40,7 @@ async def lisatietoja(ctx):
     now = datetime.now(tz=timezone)
     seconds = abs(now-tj0).total_seconds()
     minutes = seconds/60
-    hours = ceil(seconds/(60*60))
+    hours = seconds/(60*60)
     days = seconds/(24*60*60)
     weeks = seconds/(7*24*60*60)
     months = seconds/(30.437*24*60*60)
