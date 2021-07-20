@@ -12,24 +12,29 @@ timezone = timezone("Europe/Helsinki")
 
 bot = commands.Bot(command_prefix="!")
 
+
 @bot.event
 async def on_ready():
     print(f"{bot.user.name} has connected to Discord!")
 
+
 @bot.command(name="aamuja", help="Toivottaa aamuja")
 async def aamuja(ctx):
     await ctx.send("Aamuja!")
+
 
 @bot.command(name="tj", help="Tänään jäljellä")
 async def tj(ctx):
     tj = count_tj()
     await ctx.send(f"Tänään jäljellä: **{tj}** aamua")
 
+
 @bot.command(name="ohi", help="Aamuja ohi")
 async def ohi(ctx):
     tj = count_tj()
     ohi = 347-tj
     await ctx.send(f"Ohi on: **{ohi}** aamua")
+
 
 @bot.command(name="lisätietoja", help="Yksityiskohtaisempaa tietoa")
 async def lisatietoja(ctx):
@@ -61,11 +66,13 @@ async def lisatietoja(ctx):
               f"- {ohi} aamua ({percent:.2f} %)```"
     await ctx.send(details)
 
+
 def count_tj():
     now = datetime.now(tz=timezone)
     tj0 = datetime(2022, 6, 16)
     tj0 = timezone.localize(tj0)
     tj = abs((now-tj0).days)
     return tj
+
 
 bot.run(TOKEN)
