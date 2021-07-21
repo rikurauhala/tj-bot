@@ -39,8 +39,8 @@ async def ohi(ctx):
 
 @bot.command(name="lisätietoja", help="Yksityiskohtaisempaa tietoa")
 async def lisatietoja(ctx):
-    se = "2/21"
-    pa = 347
+    contingent = "2/21"
+    duration = 347
     tj0 = datetime(2022, 6, 16, 10, 0, 0)
     tj0 = timezone.localize(tj0)
     now = datetime.now(tz=timezone)
@@ -51,10 +51,10 @@ async def lisatietoja(ctx):
     weeks = days/7
     months = days/30.437
     years = days/365
-    ohi = pa-count_tj()
-    percent = 100*(1-days/pa)
-    details = f"```Saapumiserä: {se} \n" \
-              f"Palvelusaika: {pa} \n\n" \
+    ohi = duration-count_tj()
+    percent = 100*(1-days/duration)
+    details = f"```Saapumiserä: {contingent} \n" \
+              f"Palvelusaika: {duration} \n\n" \
               f"TÄNÄÄN JÄLJELLÄ \n" \
               f"- Vuosina: {years:.2f} \n" \
               f"- Kuukausina: {months:.2f} \n" \
