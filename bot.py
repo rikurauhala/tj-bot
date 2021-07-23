@@ -38,9 +38,7 @@ async def ohi(ctx):
 
 
 @bot.command(name="lisätietoja", help="Yksityiskohtaisempaa tietoa")
-async def lisatietoja(ctx):
-    contingent = "2/21"
-    duration = 347
+async def lisatietoja(ctx, contingent: str = "1/21", duration: int = 347):
     tj0 = datetime(2022, 6, 16, 10, 0, 0)
     tj0 = timezone.localize(tj0)
     now = datetime.now(tz=timezone)
