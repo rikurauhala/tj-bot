@@ -36,7 +36,10 @@ async def tj(ctx, contingent: str = default_contingent, duration: int = default_
         await ctx.send("Virheellinen palvelusaika")
         return
     tj = count_tj(contingent, duration)
-    await ctx.send(f"Tänään jäljellä: **{tj}** aamua")
+    if tj > 0:
+        await ctx.send(f"Tänään jäljellä: **{tj}** aamua")
+    else:
+        await ctx.send(f"Tänään jäljellä: **{tj}** aamua, ohi on!")
 
 
 @bot.command(name="ohi", help="Aamuja ohi")
@@ -119,7 +122,7 @@ def get_tj0(contingent, duration):
 def count_tj(contingent, duration):
     now = datetime.now(tz=timezone)
     tj0 = get_tj0(contingent, duration)
-    tj = abs((now-tj0).days)
+    tj = -1*(now-tj0).days
     return tj
 
 
