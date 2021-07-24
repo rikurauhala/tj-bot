@@ -64,6 +64,10 @@ async def lisatietoja(ctx, contingent: str = default_contingent, duration: int =
         await ctx.send("Virheellinen palvelusaika")
         return
     tj0 = get_tj0(contingent, duration)
+    tj = count_tj(contingent, duration)
+    if tj < 0:
+        await ctx.send("Ohi on!")
+        return
     now = datetime.now(tz=timezone)
     seconds = abs(now-tj0).total_seconds()
     minutes = seconds/60
@@ -72,7 +76,7 @@ async def lisatietoja(ctx, contingent: str = default_contingent, duration: int =
     weeks = days/7
     months = days/30.437
     years = days/365
-    ohi = duration-count_tj(contingent, duration)
+    ohi = duration-tj
     percent = 100*(1-days/duration)
     details = f"```Saapumiserä: {contingent} \n" \
               f"Palvelusaika: {duration} \n\n" \
