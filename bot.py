@@ -28,14 +28,14 @@ async def aamuja(ctx):
 
 
 @bot.command(name="tj", help="Tänään jäljellä")
-async def tj(ctx):
-    tj = count_tj()
+async def tj(ctx, contingent: str = default_contingent, duration: int = default_duration):
+    tj = count_tj(contingent, duration)
     await ctx.send(f"Tänään jäljellä: **{tj}** aamua")
 
 
 @bot.command(name="ohi", help="Aamuja ohi")
-async def ohi(ctx):
-    tj = count_tj()
+async def ohi(ctx, contingent: str = default_contingent, duration: int = default_duration):
+    tj = count_tj(contingent, duration)
     ohi = 347-tj
     await ctx.send(f"Ohi on: **{ohi}** aamua")
 
@@ -57,7 +57,7 @@ async def lisatietoja(ctx, contingent: str = default_contingent, duration: int =
     weeks = days/7
     months = days/30.437
     years = days/365
-    ohi = duration-count_tj()
+    ohi = duration-count_tj(contingent, duration)
     percent = 100*(1-days/duration)
     details = f"```Saapumiserä: {contingent} \n" \
               f"Palvelusaika: {duration} \n\n" \
@@ -104,10 +104,9 @@ def get_tj0(contingent, duration):
     return tj0
 
 
-def count_tj():
+def count_tj(contingent, duration):
     now = datetime.now(tz=timezone)
-    tj0 = datetime(2022, 6, 16)
-    tj0 = timezone.localize(tj0)
+    tj0 = get_tj0(contingent, duration)
     tj = abs((now-tj0).days)
     return tj
 
