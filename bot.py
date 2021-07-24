@@ -29,11 +29,7 @@ async def aamuja(ctx):
 
 @bot.command(name="tj", help="Tänään jäljellä")
 async def tj(ctx, contingent: str = default_contingent, duration: int = default_duration):
-    if not valid_contingent(contingent):
-        await ctx.send("Virheellinen saapumiserä")
-        return
-    if not valid_duration(duration):
-        await ctx.send("Virheellinen palvelusaika")
+    if not valid(ctx, contingent, duration):
         return
     tj = count_tj(contingent, duration)
     if tj > 0:
@@ -44,11 +40,7 @@ async def tj(ctx, contingent: str = default_contingent, duration: int = default_
 
 @bot.command(name="ohi", help="Aamuja ohi")
 async def ohi(ctx, contingent: str = default_contingent, duration: int = default_duration):
-    if not valid_contingent(contingent):
-        await ctx.send("Virheellinen saapumiserä")
-        return
-    if not valid_duration(duration):
-        await ctx.send("Virheellinen palvelusaika")
+    if not valid(ctx, contingent, duration):
         return
     tj = count_tj(contingent, duration)
     ohi = 347-tj
@@ -57,11 +49,7 @@ async def ohi(ctx, contingent: str = default_contingent, duration: int = default
 
 @bot.command(name="lisätietoja", help="Yksityiskohtaisempaa tietoa")
 async def lisatietoja(ctx, contingent: str = default_contingent, duration: int = default_duration):
-    if not valid_contingent(contingent):
-        await ctx.send("Virheellinen saapumiserä")
-        return
-    if not valid_duration(duration):
-        await ctx.send("Virheellinen palvelusaika")
+    if not valid(ctx, contingent, duration):
         return
     tj0 = get_tj0(contingent, duration)
     tj = count_tj(contingent, duration)
@@ -93,14 +81,28 @@ async def lisatietoja(ctx, contingent: str = default_contingent, duration: int =
     await ctx.send(details)
 
 
-def valid_contingent(contingent):
-    valid = ["1/21", "2/21"]
-    return contingent in valid
+def valid(ctx, contingent, duration):
+    return valid_contingent(ctx, contingent) and valid_duration(ctx, duration)
 
 
-def valid_duration(duration):
-    valid = [165, 255, 347]
-    return duration in valid
+async def valid_contingent(ctx, contingent):
+    contingents = ["1/21", "2/21"]
+    valid = contingent in contingents
+    if valid:
+        return True
+    else:
+        await ctx.send("Virheellinen saapumiserä")
+        return False
+
+
+async def valid_duration(ctx, duration):
+    durations = [165, 255, 347]
+    valid = duration in durations
+    if valid:
+        return True
+    else:
+        await ctx.send("Virheellinen palvelusaika")
+        return False
 
 
 def get_tj0(contingent, duration):
