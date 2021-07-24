@@ -95,7 +95,7 @@ def get_tj0(contingent, duration):
             tj0 = datetime(2021, 12, 16, 10, 0, 0)
     elif contingent == "2/21":
         if duration == 165:
-            tj0 = datetime(2021, 7, 5, 10, 0, 0)
+            tj0 = datetime(2021, 12, 16, 10, 0, 0)
         elif duration == 255:
             tj0 = datetime(2022, 3, 16, 10, 0, 0)
         else:
