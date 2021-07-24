@@ -11,6 +11,9 @@ TOKEN = os.getenv("DISCORD_TOKEN")
 
 timezone = timezone("Europe/Helsinki")
 
+default_contingent = "2/21"
+default_duration = 347
+
 bot = commands.Bot(command_prefix="!")
 
 
@@ -38,7 +41,7 @@ async def ohi(ctx):
 
 
 @bot.command(name="lisätietoja", help="Yksityiskohtaisempaa tietoa")
-async def lisatietoja(ctx, contingent: str = "1/21", duration: int = 347):
+async def lisatietoja(ctx, contingent: str = default_contingent, duration: int = default_duration):
     if not valid_contingent(contingent):
         await ctx.send("Virheellinen saapumiserä")
         return
@@ -73,7 +76,7 @@ async def lisatietoja(ctx, contingent: str = "1/21", duration: int = 347):
 
 
 def valid_contingent(contingent):
-    valid = ["2/20", "1/21"]
+    valid = ["1/21", "2/21"]
     return contingent in valid
 
 
