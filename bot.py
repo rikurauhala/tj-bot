@@ -29,12 +29,24 @@ async def aamuja(ctx):
 
 @bot.command(name="tj", help="Tänään jäljellä")
 async def tj(ctx, contingent: str = default_contingent, duration: int = default_duration):
+    if not valid_contingent(contingent):
+        await ctx.send("Virheellinen saapumiserä")
+        return
+    if not valid_duration(duration):
+        await ctx.send("Virheellinen palvelusaika")
+        return
     tj = count_tj(contingent, duration)
     await ctx.send(f"Tänään jäljellä: **{tj}** aamua")
 
 
 @bot.command(name="ohi", help="Aamuja ohi")
 async def ohi(ctx, contingent: str = default_contingent, duration: int = default_duration):
+    if not valid_contingent(contingent):
+        await ctx.send("Virheellinen saapumiserä")
+        return
+    if not valid_duration(duration):
+        await ctx.send("Virheellinen palvelusaika")
+        return
     tj = count_tj(contingent, duration)
     ohi = 347-tj
     await ctx.send(f"Ohi on: **{ohi}** aamua")
