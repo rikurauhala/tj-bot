@@ -48,8 +48,7 @@ async def lisatietoja(ctx, contingent: str = default_contingent, duration: int =
     if not valid_duration(duration):
         await ctx.send("Virheellinen palvelusaika")
         return
-    tj0 = datetime(2022, 6, 16, 10, 0, 0)
-    tj0 = timezone.localize(tj0)
+    tj0 = get_tj0(contingent, duration)
     now = datetime.now(tz=timezone)
     seconds = abs(now-tj0).total_seconds()
     minutes = seconds/60
@@ -83,6 +82,26 @@ def valid_contingent(contingent):
 def valid_duration(duration):
     valid = [165, 255, 347]
     return duration in valid
+
+
+def get_tj0(contingent, duration):
+    tj0 = None
+    if contingent == "1/21":
+        if duration == 165:
+            tj0 = datetime(2021, 6, 17, 10, 0, 0)
+        elif duration == 255:
+            tj0 = datetime(2021, 9, 15, 10, 0, 0)
+        else:
+            tj0 = datetime(2021, 12, 16, 10, 0, 0)
+    elif contingent == "2/21":
+        if duration == 165:
+            tj0 = datetime(2021, 7, 5, 10, 0, 0)
+        elif duration == 255:
+            tj0 = datetime(2022, 3, 16, 10, 0, 0)
+        else:
+            tj0 = datetime(2022, 6, 16, 10, 0, 0)
+    tj0 = timezone.localize(tj0)
+    return tj0
 
 
 def count_tj():
