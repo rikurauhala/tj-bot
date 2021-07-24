@@ -39,6 +39,12 @@ async def ohi(ctx):
 
 @bot.command(name="lisätietoja", help="Yksityiskohtaisempaa tietoa")
 async def lisatietoja(ctx, contingent: str = "1/21", duration: int = 347):
+    if not valid_contingent(contingent):
+        await ctx.send("Virheellinen saapumiserä")
+        return
+    if not valid_duration(duration):
+        await ctx.send("Virheellinen palvelusaika")
+        return
     tj0 = datetime(2022, 6, 16, 10, 0, 0)
     tj0 = timezone.localize(tj0)
     now = datetime.now(tz=timezone)
@@ -64,6 +70,16 @@ async def lisatietoja(ctx, contingent: str = "1/21", duration: int = 347):
               f"OHI ON \n" \
               f"- {ohi} aamua ({percent:.2f} %)```"
     await ctx.send(details)
+
+
+def valid_contingent(contingent):
+    valid = ["2/20", "1/21"]
+    return contingent in valid
+
+
+def valid_duration(duration):
+    valid = [165, 255, 347]
+    return duration in valid
 
 
 def count_tj():
