@@ -16,15 +16,16 @@ default_duration = 347
 
 bot = commands.Bot(command_prefix="!")
 
+for file in os.listdir("./cogs"):
+    if file.endswith(".py"):
+        cog = file[:-3]
+        bot.load_extension(f"cogs.{cog}")
+        print(f"Loaded '{cog}'")
+
 
 @bot.event
 async def on_ready():
     print(f"{bot.user.name} has connected to Discord!")
-
-
-@bot.command(name="aamuja", help="Toivottaa aamuja")
-async def aamuja(ctx):
-    await ctx.send("Aamuja!")
 
 
 @bot.command(name="tj", help="Tänään jäljellä")
