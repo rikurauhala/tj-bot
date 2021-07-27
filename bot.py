@@ -14,7 +14,8 @@ timezone = timezone("Europe/Helsinki")
 default_contingent = "2/21"
 default_duration = 347
 
-bot = commands.Bot(command_prefix="!")
+description = "tj-bot kertoo montako aamua on tänään jäljellä"
+bot = commands.Bot(command_prefix="!", description=description)
 
 for file in os.listdir("./cogs"):
     if file.endswith(".py"):
