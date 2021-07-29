@@ -89,22 +89,18 @@ def valid(ctx, contingent, duration):
 
 async def valid_contingent(ctx, contingent):
     contingents = ["1/21", "2/21"]
-    valid = contingent in contingents
-    if valid:
-        return True
-    else:
+    if contingent not in contingents:
         await ctx.send("Virheellinen saapumiserä")
         return False
+    return True
 
 
 async def valid_duration(ctx, duration):
     durations = [165, 255, 347]
-    valid = duration in durations
-    if valid:
-        return True
-    else:
+    if duration not in durations:
         await ctx.send("Virheellinen palvelusaika")
         return False
+    return True
 
 
 def get_tj0(contingent, duration):
