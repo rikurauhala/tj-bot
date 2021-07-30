@@ -107,18 +107,18 @@ def get_tj0(contingent, duration):
     tj0 = None
     if contingent == "1/21":
         if duration == 165:
-            tj0 = datetime(2021, 6, 17, 10, 0, 0)
+            tj0 = datetime(2021, 6, 17)
         elif duration == 255:
-            tj0 = datetime(2021, 9, 15, 10, 0, 0)
+            tj0 = datetime(2021, 9, 15)
         else:
-            tj0 = datetime(2021, 12, 16, 10, 0, 0)
+            tj0 = datetime(2021, 12, 16)
     elif contingent == "2/21":
         if duration == 165:
-            tj0 = datetime(2021, 12, 16, 10, 0, 0)
+            tj0 = datetime(2021, 12, 16)
         elif duration == 255:
-            tj0 = datetime(2022, 3, 16, 10, 0, 0)
+            tj0 = datetime(2022, 3, 16)
         else:
-            tj0 = datetime(2022, 6, 16, 10, 0, 0)
+            tj0 = datetime(2022, 6, 16)
     tj0 = timezone.localize(tj0)
     return tj0
 
