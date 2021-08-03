@@ -51,6 +51,7 @@ $ pip install -r requirements.txt
 # Korvaa {token} bottisi tokenilla, jonka saat Discordin Developer portal -sivulta
 $ echo "DISCORD_TOKEN={token}" > .env
 
-# Käynnistä botti
+# Siirry lähdekoodin sisältävään kansioon ja käynnistä botti
+$ cd application
 $ python bot.py
 ```
