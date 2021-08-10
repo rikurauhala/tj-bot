@@ -6,6 +6,7 @@ from pytz import timezone
 
 from discord.ext import commands
 
+from tj import count_tj, get_tj0
 from validation import valid
 
 dotenv.load_dotenv()
@@ -83,33 +84,6 @@ async def lisatietoja(ctx, contingent: str = default_contingent, duration: int =
               f"OHI ON \n" \
               f"- {ohi} aamua ({percent:.2f} %)```"
     await ctx.send(details)
-
-
-def get_tj0(contingent, duration):
-    tj0 = None
-    if contingent == "1/21":
-        if duration == 165:
-            tj0 = datetime(2021, 6, 17)
-        elif duration == 255:
-            tj0 = datetime(2021, 9, 15)
-        else:
-            tj0 = datetime(2021, 12, 16)
-    elif contingent == "2/21":
-        if duration == 165:
-            tj0 = datetime(2021, 12, 16)
-        elif duration == 255:
-            tj0 = datetime(2022, 3, 16)
-        else:
-            tj0 = datetime(2022, 6, 16)
-    tj0 = timezone.localize(tj0)
-    return tj0
-
-
-def count_tj(contingent, duration):
-    now = datetime.now(tz=timezone)
-    tj0 = get_tj0(contingent, duration)
-    tj = -1*(now-tj0).days
-    return tj
 
 
 bot.run(TOKEN)
