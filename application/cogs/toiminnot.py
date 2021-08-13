@@ -57,14 +57,14 @@ class Toiminnot(commands.Cog):
         percent = 100*(1-days/duration)
         description = f"Saapumiserä: {contingent} \n" \
                       f"Palvelusaika: {duration}"
-        left = f"- Vuosina: {years:.2f} \n" \
-               f"- Kuukausina: {months:.2f} \n" \
-               f"- Viikkoina: {weeks:.1f} \n" \
-               f"- Päivinä: {days:.1f} \n" \
-               f"- Tunteina: {hours:.0f} \n" \
-               f"- Minuutteina: {minutes:.0f} \n" \
-               f"- Sekunteina: {seconds:.0f}"
-        past = f"- {ohi} aamua ({percent:.2f} %)"
+        left = f"• Vuosina: {years:.2f} \n" \
+               f"• Kuukausina: {months:.2f} \n" \
+               f"• Viikkoina: {weeks:.1f} \n" \
+               f"• Päivinä: {days:.1f} \n" \
+               f"• Tunteina: {hours:.0f} \n" \
+               f"• Minuutteina: {minutes:.0f} \n" \
+               f"• Sekunteina: {seconds:.0f}"
+        past = f"• {ohi} aamua ({percent:.2f} %)"
         details = discord.Embed(title="Lisätietoja",
                                 description=description,
                                 color=0x3ca45c)
