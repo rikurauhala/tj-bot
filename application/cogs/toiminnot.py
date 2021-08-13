@@ -70,6 +70,7 @@ class Toiminnot(commands.Cog):
                                 color=0x3ca45c)
         details.add_field(name="Tänään jäljellä", value=left)
         details.add_field(name="Ohi on", value=past)
+        details.set_footer(text=now.strftime("%d.%m.%Y %H:%M:%S"))
         await ctx.send(embed=details)
 
 
