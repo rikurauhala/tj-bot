@@ -2,6 +2,7 @@ from datetime import datetime
 
 from pytz import timezone
 
+import discord
 from discord.ext import commands
 
 from cogs.functions.tj import count_tj, get_tj0
@@ -54,19 +55,22 @@ class Toiminnot(commands.Cog):
         years = days/365
         ohi = duration-tj
         percent = 100*(1-days/duration)
-        details = f"```Saapumiserä: {contingent} \n" \
-                f"Palvelusaika: {duration} \n\n" \
-                f"TÄNÄÄN JÄLJELLÄ \n" \
-                f"- Vuosina: {years:.2f} \n" \
-                f"- Kuukausina: {months:.2f} \n" \
-                f"- Viikkoina: {weeks:.1f} \n" \
-                f"- Päivinä: {days:.1f} \n" \
-                f"- Tunteina: {hours:.0f} \n" \
-                f"- Minuutteina: {minutes:.0f} \n" \
-                f"- Sekunteina: {seconds:.0f} \n\n" \
-                f"OHI ON \n" \
-                f"- {ohi} aamua ({percent:.2f} %)```"
-        await ctx.send(details)
+        description = f"Saapumiserä: {contingent} \n" \
+                      f"Palvelusaika: {duration}"
+        left = f"- Vuosina: {years:.2f} \n" \
+               f"- Kuukausina: {months:.2f} \n" \
+               f"- Viikkoina: {weeks:.1f} \n" \
+               f"- Päivinä: {days:.1f} \n" \
+               f"- Tunteina: {hours:.0f} \n" \
+               f"- Minuutteina: {minutes:.0f} \n" \
+               f"- Sekunteina: {seconds:.0f}"
+        past = f"- {ohi} aamua ({percent:.2f} %)"
+        details = discord.Embed(title="Lisätietoja",
+                                description=description,
+                                color=0x3ca45c)
+        details.add_field(name="Tänään jäljellä", value=left)
+        details.add_field(name="Ohi on", value=past)
+        await ctx.send(embed=details)
 
 
 def setup(bot):
