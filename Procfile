@@ -1,1 +1,1 @@
-worker: python3 application/bot.py
+worker: sh -c 'cd application && python3 bot.py'
