@@ -12,6 +12,7 @@ TOKEN = os.getenv("DISCORD_TOKEN")
 description = "tj-bot kertoo montako aamua on tänään jäljellä"
 bot = commands.Bot(command_prefix="!", description=description)
 
+print(os.getcwd())
 for file in os.listdir("./cogs"):
     if file.endswith(".py"):
         cog = file[:-3]
