@@ -1,8 +1,6 @@
-from datetime import datetime
 import os
 
 import dotenv
-from pytz import timezone
 
 from discord.ext import commands
 
