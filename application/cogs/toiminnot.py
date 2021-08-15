@@ -2,7 +2,7 @@ from datetime import datetime
 
 from pytz import timezone
 
-import discord
+from discord import Embed
 from discord.ext import commands
 
 from cogs.functions.tj import count_tj, get_tj0
@@ -65,9 +65,7 @@ class Toiminnot(commands.Cog):
                f"• Minuutteina: {minutes:.0f} \n" \
                f"• Sekunteina: {seconds:.0f}"
         past = f"• {ohi} aamua ({percent:.2f} %)"
-        details = discord.Embed(title="Lisätietoja",
-                                description=description,
-                                color=0x3ca45c)
+        details = Embed(title="Lisätietoja", description=description, color=0x3ca45c)
         details.add_field(name="Tänään jäljellä", value=left)
         details.add_field(name="Ohi on", value=past)
         details.set_footer(text=now.strftime("%d.%m.%Y %H:%M:%S"))
