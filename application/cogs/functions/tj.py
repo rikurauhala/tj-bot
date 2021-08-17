@@ -2,8 +2,6 @@ from datetime import datetime
 
 from pytz import timezone
 
-from discord.ext import commands
-
 timezone = timezone("Europe/Helsinki")
 
 
