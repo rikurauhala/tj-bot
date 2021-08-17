@@ -1,6 +1,3 @@
-from discord.ext import commands
-
-
 def valid(ctx, contingent, duration):
     return valid_contingent(ctx, contingent) and valid_duration(ctx, duration)
 
