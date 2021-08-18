@@ -57,6 +57,7 @@ class Toiminnot(commands.Cog):
         percent = 100*(1-days/duration)
         description = f"Saapumiserä: {contingent} \n" \
                       f"Palvelusaika: {duration}"
+        progress = f"{ohi} / {duration} ({percent:.2f} %)"
         left = f"• Vuosina: {years:.2f} \n" \
                f"• Kuukausina: {months:.2f} \n" \
                f"• Viikkoina: {weeks:.1f} \n" \
@@ -64,10 +65,9 @@ class Toiminnot(commands.Cog):
                f"• Tunteina: {hours:.0f} \n" \
                f"• Minuutteina: {minutes:.0f} \n" \
                f"• Sekunteina: {seconds:.0f}"
-        past = f"• {ohi} aamua ({percent:.2f} %)"
         details = Embed(title="Lisätietoja", description=description, color=0x3ca45c)
+        details.add_field(name="Edistyminen", value=progress, inline=False)
         details.add_field(name="Tänään jäljellä", value=left)
-        details.add_field(name="Ohi on", value=past)
         details.set_footer(text=now.strftime("%d.%m.%Y %H:%M:%S"))
         await ctx.send(embed=details)
 
