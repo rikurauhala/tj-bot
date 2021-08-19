@@ -7,8 +7,8 @@ from discord.ext import commands
 dotenv.load_dotenv()
 TOKEN = os.getenv("DISCORD_TOKEN")
 
-description = "tj-bot kertoo montako aamua on tänään jäljellä"
-bot = commands.Bot(command_prefix="!", description=description)
+DESCRIPTION = "tj-bot kertoo montako aamua on tänään jäljellä"
+bot = commands.Bot(command_prefix="!", description=DESCRIPTION)
 
 for file in os.listdir("./cogs"):
     if file.endswith(".py"):
