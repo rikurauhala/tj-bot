@@ -10,8 +10,8 @@ from cogs.functions.validation import valid
 
 timezone = timezone("Europe/Helsinki")
 
-default_contingent = "2/21"
-default_duration = 347
+DEFAULT_CONTINGENT = "2/21"
+DEFAULT_DURATION = 347
 
 class Toiminnot(commands.Cog):
 
@@ -19,7 +19,7 @@ class Toiminnot(commands.Cog):
         self.bot = bot
 
     @commands.command(name="tj", help="Tänään jäljellä")
-    async def tj(self, ctx, contingent=default_contingent, duration=default_duration):
+    async def tj(self, ctx, contingent=DEFAULT_CONTINGENT, duration=DEFAULT_DURATION):
         if not valid(ctx, contingent, duration):
             return
         tj = count_tj(contingent, duration)
@@ -29,7 +29,7 @@ class Toiminnot(commands.Cog):
             await ctx.send(f"Tänään jäljellä: **{tj}** aamua, ohi on!")
 
     @commands.command(name="ohi", help="Aamuja ohi")
-    async def ohi(self, ctx, contingent=default_contingent, duration=default_duration):
+    async def ohi(self, ctx, contingent=DEFAULT_CONTINGENT, duration=DEFAULT_DURATION):
         if not valid(ctx, contingent, duration):
             return
         tj = count_tj(contingent, duration)
@@ -37,7 +37,7 @@ class Toiminnot(commands.Cog):
         await ctx.send(f"Ohi on: **{ohi}** aamua")
 
     @commands.command(name="lisätietoja", help="Yksityiskohtaisempaa tietoa")
-    async def lisatietoja(self, ctx, contingent=default_contingent, duration=default_duration):
+    async def lisatietoja(self, ctx, contingent=DEFAULT_CONTINGENT, duration=DEFAULT_DURATION):
         if not valid(ctx, contingent, duration):
             return
         tj0 = get_tj0(contingent, duration)
