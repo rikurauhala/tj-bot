@@ -8,6 +8,7 @@ class Aamuja(commands.Cog):
 
     @commands.command(name="aamuja", help="Toivottaa aamuja")
     async def aamuja(self, ctx):
+        """Answer to being pinged by a user"""
         await ctx.send("Aamuja!")
 
 
