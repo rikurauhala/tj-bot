@@ -8,10 +8,10 @@ class Aamuja(commands.Cog):
 
     @commands.command(name="aamuja", help="Toivottaa aamuja")
     async def aamuja(self, ctx):
-        """Answer to being pinged by a user"""
+        """Answer to being pinged by a user."""
         await ctx.send("Aamuja!")
 
 
 def setup(bot):
-    """Add cog to the bot"""
+    """Add cog to the bot."""
     bot.add_cog(Aamuja(bot))
