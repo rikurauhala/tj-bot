@@ -6,6 +6,7 @@ timezone = timezone("Europe/Helsinki")
 
 
 def count_tj(contingent, duration):
+    """Count tj based on contingent and duration."""
     now = datetime.now(tz=timezone)
     tj0 = get_tj0(contingent, duration)
     tj = -1*(now-tj0).days
