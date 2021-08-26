@@ -13,4 +13,5 @@ class Aamuja(commands.Cog):
 
 
 def setup(bot):
+    """Add cog to the bot"""
     bot.add_cog(Aamuja(bot))
