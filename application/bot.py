@@ -19,6 +19,7 @@ for file in os.listdir("./cogs"):
 
 @bot.event
 async def on_ready():
+    """Print bot status in console after connecting"""
     print(f"{bot.user.name} has connected to Discord!")
 
 
