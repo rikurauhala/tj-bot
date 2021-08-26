@@ -1,4 +1,5 @@
 def valid(ctx, contingent, duration):
+    """Validate contingent and duration."""
     return valid_contingent(ctx, contingent) and valid_duration(ctx, duration)
 
 
