@@ -14,6 +14,7 @@ def count_tj(contingent, duration):
 
 
 def get_tj0(contingent, duration):
+    """Get tj0 date based on contingent and duration."""
     tj0 = None
     if contingent == "1/21":
         if duration == 165:
