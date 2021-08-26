@@ -3,6 +3,7 @@ def valid(ctx, contingent, duration):
 
 
 async def valid_contingent(ctx, contingent):
+    """Validate contingent."""
     contingents = ["1/21", "2/21"]
     if contingent not in contingents:
         await ctx.send("Virheellinen saapumiserä")
