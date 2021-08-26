@@ -12,6 +12,7 @@ async def valid_contingent(ctx, contingent):
 
 
 async def valid_duration(ctx, duration):
+    """Validate duration."""
     durations = [165, 255, 347]
     if duration not in durations:
         await ctx.send("Virheellinen palvelusaika")
