@@ -41,6 +41,8 @@ $ git clone https://github.com/rikurauhala/tj-bot
 $ cd tj-bot
 
 # Luo virtuaaliympäristö ja aktivoi se
+# Järjestelmästä riippuen voit joutua käyttämään komentoa python3 tai asentamaan
+# ensin virtuaaliympäristön pip-työkalun avulla
 $ python -m venv venv
 $ source venv/bin/activate
 
