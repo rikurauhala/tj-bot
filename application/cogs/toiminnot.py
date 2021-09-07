@@ -31,6 +31,7 @@ class Toiminnot(commands.Cog):
 
     @commands.command(name="ohi", help="Aamuja ohi")
     async def ohi(self, ctx, contingent=DEFAULT_CONTINGENT, duration=DEFAULT_DURATION):
+        """Print the number of service days behind."""
         if not valid(ctx, contingent, duration):
             return
         tj = count_tj(contingent, duration)
