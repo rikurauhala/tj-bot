@@ -40,6 +40,7 @@ class Toiminnot(commands.Cog):
 
     @commands.command(name="lisätietoja", help="Yksityiskohtaisempaa tietoa")
     async def lisatietoja(self, ctx, contingent=DEFAULT_CONTINGENT, duration=DEFAULT_DURATION):
+        """Print additional information based on contingent and duration."""
         if not valid(ctx, contingent, duration):
             return
         tj0 = get_tj0(contingent, duration)
