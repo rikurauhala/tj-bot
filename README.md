@@ -23,6 +23,7 @@ Komennot `!tj`, `!ohi` ja `!lisätietoja` tukevat vaihtoehtoisten saapumiserien 
 Tuetut saapumiserät:
 - 1/21
 - 2/21
+- 1/22
 
 Tuetut palvelusajat:
 - 165
