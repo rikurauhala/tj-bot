@@ -30,5 +30,12 @@ def get_tj0(contingent, duration):
             tj0 = datetime(2022, 3, 16)
         else:
             tj0 = datetime(2022, 6, 16)
+    elif contingent == "1/22":
+        if duration == 165:
+            tj0 = datetime(2022, 6, 16)
+        elif duration == 255:
+            tj0 = datetime(2022, 9, 14)
+        else:
+            tj0 = datetime(2022, 12, 15)
     tj0 = timezone.localize(tj0)
     return tj0
