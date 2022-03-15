@@ -36,7 +36,7 @@ Tuetut palvelusajat:
 
 ## Asennusohjeet
 
-!! Huomaathan, että discord.py kehitys on päättynyt, joten botti saattaa jossain kohtaa lakata toimimasta
+:warning: Huomaathan, että discord.py kehitys on päättynyt, joten botti saattaa jossain kohtaa lakata toimimasta
 
 Aloita luomalla sovellus ja siihen botti [Discordin sivuilla](https://discord.com/developers/applications). Generoi token ja ota se talteen myöhempää käyttöä varten. Valitse botille myös tarvittavat käyttöoikeudet. Ylläpitäjän (administrator) oikeuksia ei tarvita, sillä tj-bot vain lukee viestejä ja reagoi komentoihin. Lisää myös tämän sivun kautta botti omalle Discord-palvelimellesi. Oletetaan, että Git ja Python ovat asennettuina Linuxille.
 
