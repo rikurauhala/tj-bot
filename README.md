@@ -6,6 +6,8 @@ Discord-botti, joka kertoo päivän tj-luvun ja toivottaa aamuja intissä oleval
 
 ## Esimerkki
 
+Esimerkki botin toiminnasta Discord-sovelluksessa.
+
 ![Esimerkki botin toiminnasta](documentation/screenshot.png "Esimerkki botin toiminnasta")
 
 ## Komennot
